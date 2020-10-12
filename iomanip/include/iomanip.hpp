@@ -4,21 +4,15 @@
  * @author Rysina_S
  */
 
+#include <iostream>
+
 #ifndef __IOMANIP_HPP__
 #define __IOMANIP_HPP__
 
-#include <iostream>
-
 //{ endm manipulator
 
-std::basic_ostream<char, std::char_traits<char>>& endm(std::basic_ostream<char, std::char_traits<char>>& os) {
-    for (const char c : "[eol]\n") {
-        if (c != '\0') {
-            os.put(os.widen(c));
-        }
-    }
-
-    return os.flush();
+inline std::ostream& endm(std::ostream& out) {
+    return out << "[eol]\n";
 }
 
 //}
